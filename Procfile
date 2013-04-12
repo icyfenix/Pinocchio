@@ -1,1 +1,1 @@
-web: gunicorn app:endpoints.app
+web: python start.py

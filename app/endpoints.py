@@ -30,7 +30,6 @@ def die():
 
 @app.route("/load_wait")
 def load_wait():
-    print LOAD
     global LOAD
     LOAD += 1
     time.sleep(LOAD/50.0)
