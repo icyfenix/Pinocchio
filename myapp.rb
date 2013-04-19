@@ -3,6 +3,7 @@ class App < Sinatra::Application
 	# myapp.rb
 
 	set :load, 0 
+	set :hadDied, 0
 
 	get '/' do
 	  'Hello world!'
@@ -25,7 +26,7 @@ class App < Sinatra::Application
 	end
 
 	get '/die' do
-	   exit 1
+	   	App.amethodthatdoesnotexist()
 	end
 
 	get '/load_wait' do
