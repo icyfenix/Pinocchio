@@ -1,1 +1,1 @@
-web: python start.py
+web: ruby myapp.rb
