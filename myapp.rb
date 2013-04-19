@@ -26,7 +26,9 @@ class App < Sinatra::Application
 	end
 
 	get '/die' do
-	   	App.amethodthatdoesnotexist()
+	   	while true
+	   		var x
+	   	end
 	end
 
 	get '/load_wait' do
