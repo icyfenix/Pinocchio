@@ -2,8 +2,8 @@ require 'sinatra'
 class App < Sinatra::Application
 	# myapp.rb
 
-	set :load, 0 
-	set :hadDied, 0
+	load = 0
+	leakarray = [1..5000]
 
 	get '/' do
 	  'Hello world!'
@@ -11,18 +11,19 @@ class App < Sinatra::Application
 
 
 	get '/wait/:length' do
-	    sleep(length) ## What is the ruby equiv of time.sleep
-	    "" ## This is a return because near as I can tell we can't do anything without magic
+	    sleep(params[:length].to_f) ## What is the ruby equiv of time.sleep
+	    "done" ## This is a return because near as I can tell we can't do anything without magic
 	end
 
 	get '/wait' do
-	    sleep(random.randint(1,20))
-	    ""
+		randSleep = Random.new()
+	    sleep(randSleep.rand(1..20))
+	    "done"
 	end
 
 	get '/load' do
-	    load += 1
-		""
+	    load = load + 1
+		"current load: #{load}"
 	end
 
 	get '/die' do
@@ -32,8 +33,13 @@ class App < Sinatra::Application
 	end
 
 	get '/load_wait' do
-	    load += 1
+	    load = load + 1
 	    sleep(load/50.0)
-	    ""
+	    "done"
+	end
+
+	get '/leaky' do 
+		leakarray = leakarray + leakarray
+		" #{leakarray.length()}"
 	end
 end
