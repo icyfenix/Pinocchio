@@ -1,5 +1,6 @@
 require 'sinatra'
-
+class App < Sinatra::Application
+	# myapp.rb
 
 	set :load, 0 
 
@@ -32,3 +33,4 @@ require 'sinatra'
 	    sleep(load/50.0)
 	    ""
 	end
+end
