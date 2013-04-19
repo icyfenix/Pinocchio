@@ -1,1 +1,1 @@
-web: ruby myapp.rb
+web: bundle exec unicorn -p $PORT
